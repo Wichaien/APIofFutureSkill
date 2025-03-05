@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "688299fd-6a3d-4367-954c-e0ee091e37f0",
+		"name": "FutureSkillTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11469403"
+	},
+	"item": [
+		{
+			"name": "Get a posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(\"Request Type of Method: \" + pm.request.method)",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"// try {",
+							"//     const response = await pm.sendRequest({",
+							"//         url: \"https://postman-echo.com/get\",",
+							"//         method: \"GET\"",
+							"//     });",
+							"",
+							"//     console.log(response.json());",
+							"// } catch (err) {",
+							"//     console.error(err);",
+							"// }",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"// pm.test(\"Status code is 200\", function () {",
+							"//     pm.response.to.have.status(200);",
+							"// });",
+							"",
+							"// pm.test(\"Response body is success\", function () {",
+							"//     pm.expect(pm.response.text()).to.include(\"aut\");",
+							"// });",
+							"// pm.test(\"Content-Type is present\", function () {",
+							"//     pm.response.to.have.header(\"Content-Type\");",
+							"// });",
+							"",
+							"// sudo npm install -g newman@beta --unsafe-perm",
+							"// sudo npm install -g newman-reporter-htmlextra"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// console.log(\"Request Method: \" + pm.request.method)",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/posts",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 80ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(80);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"// pm.test(\"Status code is 200\", function () {",
+							"//     pm.response.to.have.status(201);",
+							"// });",
+							"// pm.test(\"Successful POST request\", function () {",
+							"//     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"// });",
+							"// pm.test(\"Status code name has string\", function () {",
+							"//     pm.response.to.have.status(\"Created\");",
+							"// });",
+							"// pm.test(\"Response body success\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.id).to.eql(101);",
+							"//     pm.expect(jsonData.body).to.eql(\"bar\");",
+							"// });",
+							"// pm.test(\"Response time is less than 350ms\", function () {",
+							"//     pm.expect(pm.response.responseTime).to.be.below(350);",
+							"// });",
+							"// pm.test(\"Content-Type is present\", function () {",
+							"//     pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");",
+							"// });",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\": \"foo\", \"body\": \"bar\", \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/posts1",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"posts1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.title).to.eql(\"futureskill\");",
+							"});",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");",
+							"});",
+							"",
+							"let response = pm.response.json()",
+							"pm.environment.set(\"id\", response.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\": \"futureskill\", \"body\": \"bar\", \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/posts/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is {}\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql({});",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}posts/:id",
+					"host": [
+						"{{baseURL}}posts"
+					],
+					"path": [
+						":id"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
